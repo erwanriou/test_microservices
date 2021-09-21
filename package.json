@@ -1,0 +1,22 @@
+{
+  "name": "test_booker_infra",
+  "version": "1.0.0",
+  "description": "Booker Infra Repository",
+  "main": "index.js",
+  "scripts": {
+    "initiate": "bash scripts/initiate.sh",
+    "commit": "bash scripts/commit.sh",
+    "update": "bash scripts/update.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erwanriou/test_booker_infra.git"
+  },
+  "keywords": [],
+  "author": "Erwan Riou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erwanriou/test_booker_infra/issues"
+  },
+  "homepage": "https://github.com/erwanriou/test_booker_infra#readme"
+}
