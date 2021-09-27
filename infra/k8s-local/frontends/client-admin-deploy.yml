@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui-admin-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ui-admin
+  template:
+    metadata:
+      labels:
+        app: ui-admin
+    spec:
+      containers:
+        - name: ui-admin
+          image: docker.pkg.github.com/erwanriou/test_booker_ui_admin/ui-admin
+          env:
+            - name: REACT_APP_WEBKIT_URL
+              value: https://ik.imagekit.io/lqcpp5osrzf/
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ui-admin-srv
+spec:
+  selector:
+    app: ui-admin
+  ports:
+    - name: ui-admin
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

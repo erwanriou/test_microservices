@@ -25,6 +25,6 @@ spec:
           #   pathType: Prefix
           #   backend:
           #     service:
-          #       name: client-admin-srv
+          #       name: ui-admin-srv
           #       port:
           #         number: 3000

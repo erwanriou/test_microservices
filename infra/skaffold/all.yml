@@ -4,6 +4,7 @@ deploy:
   kubectl:
     manifests:
       - ./infra/k8s-local/configs/*
+      - ./infra/k8s-local/databases/*
       - ./infra/k8s-local/backends/*
       - ./infra/k8s-local/frontends/*
 
@@ -19,4 +20,11 @@ build:
         manual:
           - src: "src/**/*.js"
             dest: .
-    
+    # - image: docker.pkg.github.com/erwanriou/test_booker_ui_admin/ui-admin
+    #   context: _frontends/booker_ui_admin
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: "src/**/*.js"
+    #         dest: .
