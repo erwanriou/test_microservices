@@ -78,7 +78,7 @@ fi
 
 # GET ALL NEEDED REPOSITORIES
 case $UPDATE_REPOSITORY in
-  y) echo "$(tput setaf 2)::UPDATE ALL REPOSITORIES$(tput sgr 0)" && git fetch && git pull --ff-only && git submodule update --init --recursive -j 8 && git submodule foreach 'git checkout develop' && git submodule foreach 'npm run install:env' && git submodule foreach 'git fetch' && git submodule foreach 'git pull --ff-only';;
+  y) echo "$(tput setaf 2)::UPDATE ALL REPOSITORIES$(tput sgr 0)" && git fetch && git pull --ff-only && git submodule update --init --recursive -j 8 && git submodule foreach 'git checkout master' && git submodule foreach 'npm run install:env' && git submodule foreach 'git fetch' && git submodule foreach 'git pull --ff-only';;
   n) echo "$(tput setaf 2)::KEEP ACTUALS VERSIONS OF REPOSITORIES$(tput sgr 0)";;
   *) echo "$(tput setaf 2)::KEEP ACTUALS VERSIONS OF REPOSITORIES$(tput sgr 0)";;
 esac
