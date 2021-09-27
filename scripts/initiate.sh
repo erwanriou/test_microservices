@@ -133,6 +133,7 @@ then
     echo "$(tput setaf 2)::ADD IP TO ECT/HOST$(tput sgr 0)"
 
     # ADDING CORRECT ONES
+    echo "${LOCALHOST_IP}  admin.booker.dev" | sudo tee -a /etc/hosts
     echo "${LOCALHOST_IP}  booker.dev" | sudo tee -a /etc/hosts
   fi
 fi

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: user
-          image: docker.pkg.github.com/erwanrkou/test_booker_user/user
+          image: docker.pkg.github.com/erwanriou/test_booker_user/user
           env:
             - name: MONGO_URI
               value: "mongodb://user-mongo-srv:27017/user"
