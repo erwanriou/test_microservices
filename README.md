@@ -38,7 +38,8 @@ MacOs:
 ## Installation
 
 - Auth with your cloud environment using the Gcloud command: `gcloud auth application-default login`
-- Make sure to upload all the secrets needed and apply them to your kubernetes cluster (should be furnished)
+- Make sure to upload all the secrets needed and apply them to your kubernetes cluster with this command `kubectl create secret generic jwt-secret --from-literal=JWT_TOKEN=somerandomsecretyouneedtoinvent
+`
 - Fetch submodules with `npm run update`
 - Launch with `npm run initiate`
 - You can check the installation with `kubectl get pods`.
