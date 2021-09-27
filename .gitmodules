@@ -4,3 +4,6 @@
 [submodule "_libraries/booker_common"]
 	path = _libraries/booker_common
 	url = https://github.com/erwanriou/test_booker_common.git
+[submodule "_frontends/booker_ui_admin"]
+	path = _frontends/booker_ui_admin
+	url = https://github.com/erwanriou/test_booker_ui_admin

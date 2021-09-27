@@ -6,7 +6,7 @@ deploy:
       - ./infra/k8s-local/configs/*
       - ./infra/k8s-local/databases/*
       - ./infra/k8s-local/backends/*
-      - ./infra/k8s-local/frontends/*
+      # - ./infra/k8s-local/frontends/*
 
 build:
   local:

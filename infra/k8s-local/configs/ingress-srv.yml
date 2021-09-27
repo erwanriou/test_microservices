@@ -14,7 +14,7 @@ spec:
       http:
         paths:
           # AUTH AND ACCOUNT BACKENDS
-          - path: /user/?(.*)
+          - path: /api/user/?(.*)
             pathType: Prefix
             backend:
               service:
