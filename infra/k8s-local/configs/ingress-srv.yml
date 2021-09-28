@@ -13,7 +13,7 @@ spec:
     - host: admin.booker.dev
       http:
         paths:
-          # AUTH AND ACCOUNT BACKENDS
+          # ADMIN BACKENDS
           - path: /api/user/?(.*)
             pathType: Prefix
             backend:
@@ -21,10 +21,11 @@ spec:
                 name: user-srv
                 port:
                   number: 3000
-          # - path: /?(.*)
-          #   pathType: Prefix
-          #   backend:
-          #     service:
-          #       name: ui-admin-srv
-          #       port:
-          #         number: 3000
+          # ADMIN UI
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: ui-admin-srv
+                port:
+                  number: 3000
