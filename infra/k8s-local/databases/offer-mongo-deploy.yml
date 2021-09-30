@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: offer-mongo-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: offer-mongo
+  template:
+    metadata:
+      labels:
+        app: offer-mongo
+    spec:
+      containers:
+        - name: offer-mongo
+          image: mongo:4.4.1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: offer-mongo-srv
+spec:
+  selector:
+    app: offer-mongo
+  ports:
+    - name: offer-mongo
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

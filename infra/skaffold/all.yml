@@ -20,6 +20,14 @@ build:
         manual:
           - src: "src/**/*.js"
             dest: .
+    - image: docker.pkg.github.com/erwanriou/test_booker_offer/offer
+      context: _backends/booker_offer
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.js"
+            dest: .
     - image: docker.pkg.github.com/erwanriou/test_booker_ui_admin/ui-admin
       context: _frontends/booker_ui_admin
       docker:

@@ -21,7 +21,33 @@ spec:
                 name: user-srv
                 port:
                   number: 3000
+          - path: /api/offer/admin/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: user-srv
+                port:
+                  number: 3000
           # ADMIN UI
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: ui-admin-srv
+                port:
+                  number: 3000
+    - host: www.booker.dev
+      http:
+        paths:
+          # WEBSITE BACKENDS
+          - path: /api/offer/public/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: user-srv
+                port:
+                  number: 3000
+          # WEBSITE UI
           - path: /?(.*)
             pathType: Prefix
             backend:

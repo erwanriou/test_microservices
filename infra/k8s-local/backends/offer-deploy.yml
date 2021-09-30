@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: offer-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: offer
+  template:
+    metadata:
+      labels:
+        app: offer
+    spec:
+      containers:
+        - name: offer
+          image: docker.pkg.github.com/erwanriou/test_booker_offer/offer
+          env:
+            - name: MONGO_URI
+              value: "mongodb://offer-mongo-srv:27017/offer"
+            - name: NATS_URL
+              value: "http://nats-srv:4222"
+            - name: NATS_CLUSTER_ID
+              value: booker
+            - name: NODE_ENVIRONEMENT
+              value: development
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: JWT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_TOKEN
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: offer-srv
+spec:
+  selector:
+    app: offer
+  ports:
+    - name: offer
+      port: 3000
+      targetPort: 3000

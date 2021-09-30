@@ -1,0 +1,38 @@
+apiVersion: skaffold/v2beta8
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s-local/configs/*
+      - ./infra/k8s-local/databases/*
+      - ./infra/k8s-local/backends/*
+      - ./infra/k8s-local/frontends/ui-admin-deploy.yml
+
+build:
+  local:
+    push: false
+  artifacts:
+    - image: docker.pkg.github.com/erwanriou/test_booker_user/user
+      context: _backends/booker_user
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.js"
+            dest: .
+    - image: docker.pkg.github.com/erwanriou/test_booker_offer/offer
+      context: _backends/booker_offer
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.js"
+            dest: .
+    - image: docker.pkg.github.com/erwanriou/test_booker_ui_admin/ui-admin
+      context: _frontends/booker_ui_admin
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.js"
+            dest: .
