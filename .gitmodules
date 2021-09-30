@@ -1,6 +1,9 @@
 [submodule "_backends/booker_user"]
 	path = _backends/booker_user
 	url = https://github.com/erwanriou/test_booker_user.git
+[submodule "_backends/booker_offer"]
+	path = _backends/booker_offer
+	url = https://github.com/erwanriou/test_booker_offer.git
 [submodule "_libraries/booker_common"]
 	path = _libraries/booker_common
 	url = https://github.com/erwanriou/test_booker_common.git
