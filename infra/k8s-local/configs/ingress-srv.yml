@@ -25,7 +25,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: user-srv
+                name: offer-srv
                 port:
                   number: 3000
           # ADMIN UI
@@ -44,7 +44,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: user-srv
+                name: offer-srv
                 port:
                   number: 3000
           # WEBSITE UI
@@ -52,6 +52,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: ui-admin-srv
+                name: ui-client-srv
                 port:
                   number: 3000
